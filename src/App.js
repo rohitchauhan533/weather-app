@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useEffect, useState } from "react";
-//import Weather from './components/weather';
+import Weather from './components/Weather';
 import {
   REACT_APP_WEATHER_API_KEY,
   REACT_APP_WEATHER_API_URL,
@@ -30,6 +30,11 @@ export default function App() {
   }, [lat,long])
   return (
     <div className="App">
+      {(typeof data.main !== 'undefined') ? (
+        <Weather weatherData={data}/>
+      ): (
+        <div></div>
+      )}
     </div>
   );
 }
